@@ -118,16 +118,3 @@ class DvorkyKeyboard extends InputMethodService with KeyboardView.OnKeyboardActi
   def swipeDown() { }
   def swipeUp() { }
 }
-
-class DvorkyKeyboardView(context: Context, attrs: AttributeSet) extends KeyboardView(context, attrs) {
-  val KEYCODE_OPTIONS = -100;
-
-  override protected def onLongPress(key: Keyboard.Key): Boolean = {
-    if (key.codes(0) == Keyboard.KEYCODE_CANCEL) {
-      getOnKeyboardActionListener().onKey(KEYCODE_OPTIONS, null)
-      true
-    } else {
-      super.onLongPress(key)
-    }
-  }
-}
